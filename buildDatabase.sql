@@ -42,4 +42,61 @@ CREATE TABLE abonnement (
 		FOREIGN KEY(BrukerID)
 		REFERENCES bruker(BrukerID)
 		ON DELETE CASCADE
-)
+);
+
+INSERT INTO kategori (kategoriid, navn)
+VALUES 
+(
+	DEFAULT,
+	'Underholdning'
+), 
+(
+	DEFAULT,
+	'Skrekk'
+);
+
+INSERT INTO bruker (brukerid, navn, epost, passord)
+VALUES 
+(
+	DEFAULT,
+	'Lars Monsen',
+	'Villmann@skogselsker.no',
+	'JegElskerSkogen123'
+),
+(
+	DEFAULT,
+	'Line Monsen',
+	'Ekspedisjon@antarktis.no',
+	'HvorDroMannenMin123'
+);
+
+INSERT INTO podkast (podkastid, fengende_navn, kort_beskrivelse, spraak, utgiver, bilde_url, kategoriid)
+VALUES (
+	DEFAULT,
+	'Villmannen',
+	'En eventyrlig podkast med skogens mann',
+	'Norsk',
+	'Podkast senter 123',
+	'https://bildeavlarsern.no',
+	1
+),
+(
+	DEFAULT,
+	'Livet på Arktis',
+	'En eventyrlig podkast med isens dronning',
+	'Engelsk',
+	'Podkast senter 123',
+	'https://bildeavLine.no',
+	2
+);
+
+INSERT INTO abonnement (podkastid, brukerid)
+VALUES 
+(
+	1,
+	1
+),
+(
+	2,
+	2
+);
